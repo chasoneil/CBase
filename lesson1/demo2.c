@@ -19,6 +19,7 @@ int add(int a, int b);
 void func1();
 void func2();
 void func3();
+void func4();
 
 int main() 
 {
