@@ -1,10 +1,10 @@
 /*
 
-1. data type (base, void, enum, other)
+1. data type (base, void, enum, other)   func1()
     C 语言中, bool 类型是通过 int 来指定的，!=0为true ==0为false
     引入 <stdbool.h> 之后通过bool定义
-2. sizeof()
-3. max and min  (float) 
+2. sizeof() func1()
+3. max and min  (float)   func1()
     How to print int max?
 4. output address
 5. data type transfer
@@ -15,50 +15,21 @@
 
 #include <stdbool.h>
 
-void testBool();
-void testBase();
+void func1();
+void func2();
+void func3();
 
-int main() 
-{
-
-    testBool();
-    puts("------------------------------");
-
-    testBase();
-    puts("------------------------------");
-    
-    int a = 10;
-    char ch = 'a';
-    printf("int addr: %#X\n", &a);      // base type need &
-    printf("char addr:%#X\n", &ch);
-
-    char str[20] = "MyStringTest";
-    printf("string addr:%#X\n", str);
-    puts("------------------------------");
-
-    // big -> small
-    double d2 = 3.14;
-    int i2 = (int)d2;
-    printf("i2 :%d\n", i2);
-
-    // small -> big
-    int i3 = 10;
-    double d3 = (double)i3;
-    printf("d3: %f\n", d3);
-
-    // default  
-    int i4 = 10;
-    float f2 = 3.14;
-    int sum1 = i4 + f2;
-    float sum2 = i4 + f2;
-    printf("sum1: %d\n", sum1);
-    printf("sum2: %f\n", sum2);
-    puts("------------------------------");
-
+int main() {
+    func1();
+    // func2();
+    // func3();
     return 0;
 }
 
-void testBase() 
+/**
+ * 测试基本数据类型
+ */
+void func1() 
 {
     int i1;
     unsigned int ui1;
@@ -95,7 +66,7 @@ void testBase()
     puts("------------------------------");
 
     char str1[] = "Hello, C\n";
-    printf("string:%d\n", sizeof(str1));     // 10
+    printf("string size:%d\n", sizeof(str1));     // 10
     puts("------------------------------");
 
     printf("Type float max: %E\n", FLT_MAX);
@@ -108,7 +79,7 @@ void testBase()
 
 }
 
-void testBool() 
+void func2() 
 {
     int a = 1;
     if (a) {
@@ -140,4 +111,36 @@ void testBool()
     } else {
         puts("false");
     }
+}
+
+/**
+ * 强制类型转换
+ */
+void func3() {
+    int a = 10;
+    char ch = 'a';
+    printf("int addr: %#X\n", &a);      // base type need &
+    printf("char addr:%#X\n", &ch);
+
+    char str[20] = "MyStringTest";
+    printf("string addr:%#X\n", str);
+    puts("------------------------------");
+
+    // big -> small
+    double d2 = 3.14;
+    int i2 = (int)d2;
+    printf("i2 :%d\n", i2);
+
+    // small -> big
+    int i3 = 10;
+    double d3 = (double)i3;
+    printf("d3: %f\n", d3);
+
+    // default  
+    int i4 = 10;
+    float f2 = 3.14;
+    int sum1 = i4 + f2;
+    float sum2 = i4 + f2;
+    printf("sum1: %d\n", sum1);
+    printf("sum2: %f\n", sum2);
 }
