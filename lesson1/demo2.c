@@ -1,14 +1,12 @@
 /*
-
-1. define constant
-2. define variables
-3. create a simple method and use it 
-4. input something then show it       
+1. define constant func1()
+2. define variables func1()
+3. create a simple method and use it  func2()
+4. input something then show it       func3() 
     advance: how to input string then show it?
     scanf no annotation and no \n!
-5. define string 
+5. define string func4()
 6. define hong
-
 */
 
 #include <stdio.h>
@@ -18,36 +16,17 @@
 // define a function
 int add(int a, int b);
 
+void func1();
+void func2();
+void func3();
+
 int main() 
 {
+    // func1();
+    // func2();
+    // func3();
 
-    /* use const to define a constant */
-    const int VAL = 10;  // constant we always use uppercase
-    printf("VAL:%d\n", VAL);
-    // VAL = 20; error ,const can not be changed.
-    puts("---------------------------");
-
-    // define a variable
-    int num1 , num2, sum;
-    num1 = 10;
-    num2 = 20;
-    sum = add(num1, num2);
-    printf("Sum of two number:%d\n", sum);
-    puts("---------------------------");
-
-    printf("Please input two numbers:");
-    scanf("%d %d", &num1, &num2);
-    sum = add(num1, num2);
-    printf("Sum of two number from input:%d\n", sum);
-    puts("---------------------------");
-
-    /* String */
-    char str1[] = "Hello, C\n";
-    printf("str1:%s\n", str1);
-
-    char *ptr = "Hello, C1\n";
-    printf("ptr: %s\n", ptr);
-    puts("---------------------------");
+    func4();
 
     printf("PI:%f\n", PI);  // PI:3.140000
  
@@ -58,4 +37,53 @@ int main()
 int add(int a, int b)
 {
     return a + b;
+}
+
+/**
+ * 定义常量和变量
+ */
+void func1() {
+    const int val1 = 10;  // constant
+    int val2 = 10;
+    // val1 = 15; error!
+    val2 = 15;
+    printf("val1: %d\n", val1);
+    printf("val2: %d\n", val2);
+}
+
+/**
+ * 创建方法并使用他
+ */
+void func2() {
+    int val1 = 10;
+    int val2 = 5;
+    int res = add(val1, val2);
+    printf("val1+val2=%d\n", res);
+}
+
+/**
+ * 输入和输出
+ */
+void func3() {
+    int input1;
+    int input2;
+    printf("Please input two numbers:\n");
+    scanf("%d %d", &input1, &input2);
+    int ans = add(input1, input2);
+    printf("Your input: %d %d\n", input1, input2);
+    printf("Sum of your input: %d\n", ans);
+}
+
+/**
+ * 创建一个字符串
+ */
+void func4() {
+
+    // 使用字符数组
+    char str[] = "Hello, C\n";
+    printf("%s", str);
+
+    // 使用指针
+    char *ptr = "This is C pointer\n";
+    printf("%s", ptr);
 }
