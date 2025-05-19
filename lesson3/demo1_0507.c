@@ -9,7 +9,7 @@
 void func1();
 void func2();
 void func3();
-void func4(int *p);
+void func4(int *p, char *str);
 void func5(int *arr[], int size);
 
 int main() {
@@ -20,12 +20,12 @@ int main() {
 
     // func3();
 
-    int num = 10;
-    func4(&num);
+    // int num = 10;
+    // char *str = "Hahaha";
+    // func4(&num, str);
 
     int *arr[] = {1, 2, 3};
-    
-    
+    func5(arr, 3);
 
     return 0;
 }
@@ -56,9 +56,8 @@ void func2() {
 
     int num1 = 10, num2 = 20, num3 = 30;
 
-    /*定义指针数组*/
+    // 先定义再初始化
     int *ptr[3];
-
     ptr[0] = &num1;
     ptr[1] = &num2;
     ptr[2] = &num3;
@@ -66,6 +65,12 @@ void func2() {
     int i;
     for (i=0; i<3; i++) {
         printf("*ptr[%d]: %d\n", i, *ptr[i]);
+    }
+
+    // 定义并初始化
+    int *arr[] = {1, 2, 3};
+    for (i=0; i<3; i++) {
+        printf("%d\n", arr[i]);
     }
 }
 
@@ -89,7 +94,8 @@ void func3() {
     printf("p2 addr: %p\n", p2);
 }
 
-void func4(int *p) {
+/* 向函数传递指针 */
+void func4(int *p, char *str) {
 
     if (*p < 0) {
         printf("under 0\n");
@@ -98,10 +104,19 @@ void func4(int *p) {
     } else {
         printf("above 0\n");
     }
+
+    printf("%s\n", str);
 }
 
 void func5(int *arr[], int size) {
 
-
+    if (size == 0) {
+        printf("arr is empty.");
+    } else {
+        int i;
+        for (i=0; i<size; i++) {
+            printf("%d\n", arr[i]);
+        }
+    }
 
 }

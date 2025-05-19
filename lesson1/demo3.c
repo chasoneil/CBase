@@ -1,13 +1,13 @@
 /*
 
 1. data type (base, void, enum, other)   func1()
-    C 语言中, bool 类型是通过 int 来指定的，!=0为true ==0为false
+    C 语言中, bool 类型是通过 int 来指定的，!=0为true ==0为false  func2()
     引入 <stdbool.h> 之后通过bool定义
 2. sizeof() func1()
 3. max and min  (float)   func1()
     How to print int max?
-4. output address
-5. data type transfer
+4. output address   func3()
+5. data type transfer func3()
 */
 #include <stdio.h>
 #include <float.h>
