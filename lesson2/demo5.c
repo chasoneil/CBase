@@ -1,5 +1,5 @@
 /**
- * 指针
+ * 指针: 一个指向内存地址的变量
  * 1. 定义指针变量并输出地址 func1()
  * 2. 空指针 NULL func2()   
  *      怎么用指针定义字符串并输出?
@@ -14,25 +14,18 @@
 
 void func1();
 void func2();
-
 void func3();
 void func4();
 void func5();
-
 void func6();
 
 int main() {
 
     //func1();
-
     //func2();
-
-    func3();
-
+    //func3();
     //func4();
-
     //func5();
-
     //func6();
 
     return 0;
@@ -40,6 +33,7 @@ int main() {
 
 /**
  * 指针变量没法直接给常量值 int *p = 10; 这种方式是错误的
+ * 因为直接的值没有办法取地址
  */
 void func1() {
     int number = 10;
@@ -52,17 +46,19 @@ void func1() {
 
 /**
  * 只有初始化为NULL的指针才是空
- * 没有初始化的 int *p; 地址是一个随机的地址
+ * 没有初始化的 int *p; 指向随机地址
  */
 void func2() {
     int *p = NULL;
     printf("空指针的地址:%p\n", p);  // nil
+
+    int *p1;
+    printf("没初始化的*p1:%p\n", p1);  // 随机地址
 }
 
 /*  ++ 操作指针大小每次增加对应数据类型的大小 */
 // 这个特性在访问数组中的数据时特别有效
 void func3() {
-
     int a = 10;
     int *p;
     p = &a;
@@ -72,8 +68,6 @@ void func3() {
     printf("++后的内存地址:%p\n", p);  // 地址前进了4
     p--;
     printf("--后的内存地址:%p\n", p); // 回到了原地址
-
-    puts("-----------------------------");
 
     int number = 5;
     int *p1 = &number;
@@ -85,8 +79,6 @@ void func3() {
     printf("++*p1 addr:%p\n", p1);      // 地址没有发生变化
     printf("++*p1 val: %d\n", *p1);     // val + 1
 
-    puts("-----------------------------");
-
     int number1 = 8;
     int *p2 = &number1;
 
@@ -96,10 +88,10 @@ void func3() {
     printf("*p2++ val:%d\n", *p2);      // 完全是一个随机的值
 }
 
+/* 在数组中使用指针遍历 */
 void func4() {
 
     int arr[] = {5, 10, 20};
-
     int *p = arr; // arr 是数组， arr 是一个引用，指向数组的首地址 这里使用 &arr 也可以
 
     int i;
@@ -108,8 +100,6 @@ void func4() {
         printf("当前地址值:%d\n", *p);
         p++;
     }
-
-    puts("-----------------------");
 
     char str[] = "Hello";  // 字符数组
     char *cp = str;
@@ -121,6 +111,8 @@ void func4() {
     // 输出第二个字符
     printf("second char:%c\n", *cp);
 
+    // 输出整个字符串
+    printf("%s\n", str);
 }
 
 /* 指针的比较 */
@@ -145,8 +137,6 @@ void func5() {
         printf("p1 != p3\n");
     }
 
-    puts("-----------------------");
-
     int arr[] = {5, 10, 20};
 
     int *p = arr;       // 指向数组开头的位置
@@ -160,7 +150,6 @@ void func5() {
     } else {
         printf("p在q的后面\n");
     }
-
 }
 
 /* 仅使用指针的方式遍历数组 */
@@ -177,5 +166,4 @@ void func6() {
         printf("%d ", *p);
     }
     printf("\n");
-
 }

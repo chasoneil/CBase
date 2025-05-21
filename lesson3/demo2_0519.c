@@ -1,8 +1,8 @@
 /**
  * 函数指针：一个指针，本质上是一个函数的入口
- * 1. 怎么定义函数指针: typedef int (*fun_ptr)(int, int);
+ * 1. 怎么定义函数指针: returnType (*fun_ptr_name)(param...);  func1()
  * 
- * 回调函数：在函数的参数中传入一个函数指针(参数是一个函数)，在这个函数中就可以使用传入的函数指针这个函数
+ * 回调函数：在函数的参数中传入一个函数指针(参数是一个函数)，在这个函数中就可以使用传入的函数指针这个函数 func2()
  * 
  */
 #include <stdio.h>
@@ -22,6 +22,7 @@ int main() {
     return 0;
 }
 
+/* 使用回调函数 */
 void func2() {
     int *arr[] = {1, 4, 11, 8};
     doFilterNumber(arr, 4, calling);
@@ -32,7 +33,7 @@ void func1() {
     int (*m)(int, int) = &max; // *m 是一个函数指针 指向max函数
     int a = 10;
     int b = 20;
-    int res = m(a, b);
+    int res = m(a, b);  // 通过指针调用
     printf("two max:%d\n", res);
 
     int c = 25;
@@ -40,6 +41,7 @@ void func1() {
     printf("three max:%d\n", res1);
 }
 
+/* 比较两个整数谁大 */
 int max(int a, int b) {
     return a > b ? a : b;
 }

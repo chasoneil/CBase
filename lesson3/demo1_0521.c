@@ -1,8 +1,10 @@
 /**
+ * 指针高级
  * 1. 指针遍历字符串数组  func1()
  * 2. 定义指针数组，并初始化数据 func2()
  * 3. 指向指针的指针 (双指针)  func3()
  * 4. 向函数传递指针 func4()
+ * 5. 向函数传递一个数组指针，并遍历这个数组 func5()
  */
 #include <stdio.h>
 
@@ -15,9 +17,7 @@ void func5(int *arr[], int size);
 int main() {
 
     // func1();
-
     // func2();
-
     // func3();
 
     // int num = 10;
@@ -38,7 +38,6 @@ void func1() {
     /*定义字符串数组*/
     char *names[] = {"Chason", "Bob", "Fox"};
     int i;
-
     for (i=0; i<3; i++) {
         printf("names:[%d]: %s\n", i+1, names[i]);
     }
@@ -80,7 +79,6 @@ void func2() {
 void func3() {
 
     int num = 10;
-
     int *p1 = &num;
 
     int **p2;   // 如果是 *p2 那么他的值是p1地址的值
@@ -108,6 +106,7 @@ void func4(int *p, char *str) {
     printf("%s\n", str);
 }
 
+/* 传入数组指针并遍历 */
 void func5(int *arr[], int size) {
 
     if (size == 0) {

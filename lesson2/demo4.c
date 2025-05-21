@@ -1,44 +1,29 @@
 /**
  * 枚举
- * 
  * 1. 定义枚举的多种方式 func1()
- * 2. 枚举值的规则
- * 3. 遍历枚举中的元素
- * 4. 枚举和switch的配合使用
+ * 2. 枚举值的规则 和枚举的使用  func1()
+ * 3. 遍历枚举中的元素  func2()
+ * 4. 枚举和switch的配合使用 func3()
+ * 5. 枚举和整形的转换 func4()
  */
 #include <stdio.h>
 
-void favorate_color();
-void transfer();
+void func1();
+void func2();
+void func3();
+void func4();
 
  /* 可以使用宏定义出类似枚举的功能 */
 #define A 1
 #define B 2
 
-
-
 int main() {
 
     func1();
+    func2();
+    func3();
+    func4();
 
-    // 枚举的使用
-    enum DAY day;
-    day = THR;
-
-    printf("Today: %d\n", day);
-
-    puts("------------------------");
-
-    /* 枚举值没有发生断层的变化的时候可以遍历 */
-    for (day = MON;day <= SUN; day++) {
-        printf("DAY:%d\n", day);
-    }
-
-    puts("------------------------");
-
-    // favorate_color();
-
-    transfer();
     return 0;
 }
 
@@ -73,10 +58,34 @@ void func1() {
     enum {
         Shanghai, Beijing, Shenzhen, Guangzhou 
     };
+
+    // 枚举的使用
+    enum DAY day;
+    day = THR;
+
+    printf("Today: %d\n", day);
+}
+
+/* 遍历枚举中的元素 */
+void func2() {
+    enum DAY {
+        MON = 1, TUE, WND, THR, FRI, SAT, SUN
+    };
+
+    enum DAY day;
+
+    /* 枚举值没有发生断层的变化的时候可以遍历 */
+    for (day = MON; day <= SUN; day++) {
+        printf("DAY:%d\n", day);
+    }
 }
 
 /* enum and switch */
-void favorate_color() {
+void func3() {
+
+    enum COLOR {
+        green = 1, blue, yellow, red, pink
+    } color;
 
     printf("请输入你喜欢的颜色: 1. green, 2. blue, 3. yellow, 4. red, 5. pink \n");
     int favorate_color;
@@ -106,10 +115,13 @@ void favorate_color() {
 }
 
 /* 将整数转换成枚举 */
-void transfer() {
+void func4() {
+
+    enum DAY {
+        MON = 1, TUE, WND, THR, FRI, SAT, SUN
+    };
 
     int today = 3;
-
     enum DAY day;
 
     /* 上下两种方式都可以 */
