@@ -1,55 +1,25 @@
-#include <stdio.h>
-
 /**
  * 枚举
  * 
- * 1. 定义枚举的多种方式
+ * 1. 定义枚举的多种方式 func1()
  * 2. 枚举值的规则
  * 3. 遍历枚举中的元素
  * 4. 枚举和switch的配合使用
  */
+#include <stdio.h>
 
- void favorate_color();
- void transfer();
+void favorate_color();
+void transfer();
 
  /* 可以使用宏定义出类似枚举的功能 */
 #define A 1
 #define B 2
 
-/* 如果只定义枚举名 没有具体的值，会报错 */
-// enum DAY day;
 
-/* 如果不定义的话，枚举的值从0开始 */
-enum DAY {
-    MON = 1, TUE, WND, THR, FRI, SAT, SUN
-};
-
-/* 如果其中有一个重新定义了值，那么后面的从这个值开始 + 1 */
-enum SEASON {
-    spr, sum, aut = 4, win
-}; 
-
-/* 定义枚举的时候定义枚举名和值 可以只定义枚举名，只定义枚举值，或者名和值都不定义*/
-enum COLOR {
-    green = 1, blue, yellow, red, pink
-} color;
-
-enum {
-    Shanghai, Beijing, Shenzhen, Guangzhou 
-};
 
 int main() {
 
-    printf("Mon:%d\n", MON);
-
-    puts("------------------------");
-
-    // 0 1 4 5
-    printf("spr:%d\n", spr);
-    printf("sum:%d\n", sum);
-    printf("aut:%d\n", aut);
-    printf("win:%d\n", win);
-    puts("------------------------");
+    func1();
 
     // 枚举的使用
     enum DAY day;
@@ -70,6 +40,39 @@ int main() {
 
     transfer();
     return 0;
+}
+
+/* 多种定义枚举的方式 */
+void func1() {
+    /* 如果只定义枚举名 没有具体的值，会报错 */
+    // enum DAY day;
+
+    /* 如果不定义的话，枚举的值从0开始 */
+    enum DAY {
+        MON = 1, TUE, WND, THR, FRI, SAT, SUN
+    };
+
+    printf("Mon:%d\n", MON);
+
+    /* 如果其中有一个重新定义了值，那么后面的从这个值开始 + 1 */
+    enum SEASON {
+        spr, sum, aut = 4, win
+    }; 
+
+    // 0 1 4 5
+    printf("spr:%d\n", spr);
+    printf("sum:%d\n", sum);
+    printf("aut:%d\n", aut);
+    printf("win:%d\n", win);
+
+    /* 定义枚举的时候定义枚举名和值 可以只定义枚举名，只定义枚举值，或者名和值都不定义*/
+    enum COLOR {
+        green = 1, blue, yellow, red, pink
+    } color;
+
+    enum {
+        Shanghai, Beijing, Shenzhen, Guangzhou 
+    };
 }
 
 /* enum and switch */

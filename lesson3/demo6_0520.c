@@ -34,5 +34,4 @@ void func1() {
     // 4 虽然占用了4 bytes 但只有7（1 + 6） 位被用来存储值
     printf("person size: %d bytes\n", sizeof(person));
     printf("person:[sex=%d, age=%d]\n", person.sex, person.age);
-    
 }

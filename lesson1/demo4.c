@@ -1,37 +1,21 @@
-/*
-
-1. how to define outer variable? extern
-    定义的变量没有初始化，值是什么?
-2. how to define pointer?
-*/
-
+/**
+ * 每种数据的类型的默认值 func1()
+ */
 #include <stdio.h>
-#include "demo4_2.c"
 
-void testDefaultVariable();
+void func1();
 
 int *ptr1;
 
-int main() 
-{
-    testDefaultVariable();
-    puts("------------------------------");
-
+int main() {
+    func1();
     /* global pointer */
     printf("global pointer:%p\n", ptr1);  // nil
-
-    /*
-        extern 表示声明一个外部变量，这个变量在编译的时候不会定义（不分配存储空间），作用是在多个文件中使用这个变量。
-        extern 的声明和定义一般放在不同的文件中。
-        extern 的用法详见 demo4_1.c demo4_2.c
-    */
-
     return 0;
 }
 
-/* 测试值的初始化 */
-void testDefaultVariable() 
-{
+/* 默认值 */
+void func1() {
     int a;
     printf("a:%d\n", a);
 
