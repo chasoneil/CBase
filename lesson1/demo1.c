@@ -1,3 +1,8 @@
+/**
+ * 认识C
+ * 1. 输出hello C
+ * 2. 怎么编译C文件
+ */
 #include <stdio.h>  // standard input/output file
 
 int main() 

@@ -1,8 +1,9 @@
 
 /**
  * extern 关键字的用法
+ * 1. 使用extern声明变量
+ * 2. 使用extern声明方法
  */
-
 #include <stdio.h>
 
 /* 这两个变量在demo4_2.c中已经定义了, 现在想在本文件中使用 */
@@ -25,7 +26,6 @@ int add()
 
 int main() 
 {
-
     printf("num:%d\n", num);
     printf("pi: %f\n", pi);
 

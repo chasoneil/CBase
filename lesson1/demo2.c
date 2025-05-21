@@ -1,14 +1,10 @@
-/*
-1. define constant func1()
-2. define variables func1()
-3. create a simple method and use it  func2()
-4. input something then show it       func3() 
-    advance: how to input string then show it?
-    scanf no annotation and no \n!
-5. define string func4()
-6. define hong
-*/
-
+/**
+ * 变量
+ * 1. 定义变量和常量  func1()
+ * 2. 怎么创建方法，调用方法 func2();
+ * 3. 怎么从键盘输入数据并接收，有什么注意点  func3()
+ * 4. 构建字符串和宏 func4()
+ */
 #include <stdio.h>
 
 #define PI 3.14
@@ -26,27 +22,23 @@ int main()
     // func1();
     // func2();
     // func3();
-
     func4();
-
-    printf("PI:%f\n", PI);  // PI:3.140000
- 
     return 0;
 }
 
 // implementation function
-int add(int a, int b)
-{
+int add(int a, int b){
     return a + b;
 }
 
 /**
  * 定义常量和变量
+ * 除此之外使用宏定义的也是常量
  */
 void func1() {
     const int val1 = 10;  // constant
     int val2 = 10;
-    // val1 = 15; error!
+    // val1 = 15; error!  常量不能改
     val2 = 15;
     printf("val1: %d\n", val1);
     printf("val2: %d\n", val2);
@@ -69,6 +61,10 @@ void func3() {
     int input1;
     int input2;
     printf("Please input two numbers:\n");
+    /*
+        1. scanf 不能有提示词
+        2. scanf 不能有\n
+    */
     scanf("%d %d", &input1, &input2);
     int ans = add(input1, input2);
     printf("Your input: %d %d\n", input1, input2);
@@ -76,7 +72,7 @@ void func3() {
 }
 
 /**
- * 创建一个字符串
+ * 创建一个字符串和宏
  */
 void func4() {
 
@@ -87,4 +83,10 @@ void func4() {
     // 使用指针
     char *ptr = "This is C pointer\n";
     printf("%s", ptr);
+
+    // 宏可以定义在方法内，但是一般不这么做
+    #define ME "chason"
+
+    printf("ME:%s\n", ME);  // chason
+    printf("PI:%f\n", PI);  // PI:3.140000
 }
