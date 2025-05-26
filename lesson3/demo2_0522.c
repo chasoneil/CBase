@@ -1,9 +1,10 @@
 /**
  * 函数指针：一个指针，本质上是一个函数的入口
  * 1. 怎么定义函数指针: returnType (*fun_ptr_name)(param...);  func1()
- * 
- * 回调函数：在函数的参数中传入一个函数指针(参数是一个函数)，在这个函数中就可以使用传入的函数指针这个函数 func2()
- * 
+ *    怎么使用函数指针: fun_ptr_name = &fun_name;
+ * 回调函数：在函数的参数中传入一个函数指针(参数是一个函数)，在这个函数中就可以使用传入的函数指针这个函数 
+ * 2. 传入回调函数并使用，回调函数是一个函数指针 func2()
+ * 3. 有参数的函数指针使用 func3()
  */
 #include <stdio.h>
 
@@ -11,14 +12,16 @@ int max(int a, int b);
 
 void calling();
 void doFilterNumber(int *arr[], int size, void (*callBack)(void));
+void help1(int);
 
 void func1();
 void func2();
+void func3();
 
 int main() {
     // func1();
-
-    func2();
+    // func2();
+    func3();
     return 0;
 }
 
@@ -59,6 +62,20 @@ void doFilterNumber(int *arr[], int size, void (*callBack)(void)) {
 
 void calling() {
     printf("calling executed!\n");
+}
+
+/**
+ * 创建函数指针并调用有参函数help1
+ */
+void func3() 
+{
+    void (*help)(int num) = &help1;
+    int number = 18;
+    help(18);
+}
+
+void help1(int number) {
+    printf("do help1:%d\n", number);
 }
 
 
