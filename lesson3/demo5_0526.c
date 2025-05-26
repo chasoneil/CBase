@@ -64,7 +64,3 @@ void func2() {
     strcpy(data.c, "Hello C");
     printf("data c:%s\n", data.c);
 }
-
-void func3() {
-    
-}

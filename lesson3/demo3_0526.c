@@ -38,6 +38,13 @@ void func1() {
 /* 字符串常见函数 */
 void func2() {
 
+    char *s1 = "abc";
+    // char *s2;
+    char cp[4];
+    strcpy(cp, s1);
+    // strcpy(s2, s1); error 申请的指针没有初始化是 nil,就算初始化了，也是个只读的内存，不能改
+    printf("%s\n", cp);
+    
     char str1[] = "Hello";
     char str2[8];
     char str3[] = " World";

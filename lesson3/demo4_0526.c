@@ -22,14 +22,10 @@ struct Student {
 void printStudent(struct Student student);  // 函数声明中的结构体需要在声明之前
 
 int main() {
-
     // func1();
-
     // func2();
-
     // func3(); 
-
-    func4();
+    // func4();
     return 0;
 }
 
@@ -69,18 +65,19 @@ void func2() {
 
     /* 2. 先创建再初始化 */
     struct Person {
-        // char *name; 如果使用指针方式给字符串，那么这个指针一开始是一个空指针，需要进行初始化才能用
-        char name[10]; // 直接给定长度的就不需要初始化，可以直接strcpy
+        char *firstName; 
+        char lastName[10]; // 直接给定长度的就不需要初始化，可以直接strcpy
         int sex;
         int age;
     };
 
     struct Person p1;
-    strcpy(p1.name, "Chason");
+    p1.firstName = "chason";   // 指针可以直接使用 = "xxxx" 进行初始化
+    strcpy(p1.lastName, "eil");  // 字符数组不能直接使用 = "xxx", 需要使用 strcpy()
     p1.age = 18;
     p1.sex = 1;
 
-    printf("p1:[name=%s, age=%d, sex=%d]\n", p1.name, p1.age, p1.sex);
+    printf("p1:[name=%s %s, age=%d, sex=%d]\n", p1.firstName, p1.lastName, p1.age, p1.sex);
 }
 
 /**
@@ -110,8 +107,6 @@ void func4() {
 
     // 结构体指针使用 -> 访问成员
     printf("s1_ptr:[name=%s, age=%d]\n", s1_ptr->name, s1_ptr->age);
-
-
     printf("结构体大小:%dbytes\n", sizeof(s1_ptr));
 }
 
